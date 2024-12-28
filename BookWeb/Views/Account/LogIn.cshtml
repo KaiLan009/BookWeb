@@ -1,0 +1,31 @@
+﻿@model LogInViewModel
+
+<head>
+	<link href="@Url.Content("~/css/LogIn.css")" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+	<div class="mt-5">
+		<div class="card">
+			<div class="card-body">
+				<h3 class="login-text">Iniciar Sesión</h3>
+
+				<form asp-action="LogIn" method="post">
+					<div class="form-group">
+						<label asp-for="Email"></label>
+						<input asp-for="Email" type="text" class="input-form" placeholder="Email"/>
+						<span asp-validation-for="Email"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Password"></label>
+						<input asp-for="Password" class="input-form" placeholder="Contraseña" type="password" />
+						<span asp-validation-for="Password"></span>
+					</div>
+					<button type="submit">Entrar</button>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</body>
