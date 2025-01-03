@@ -1,3 +1,23 @@
 ﻿body {
     font-family: 'Courier New';
 }
+
+.BgImg{
+    background-image: url(/images/Hermitage.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 10px;
+    isolation: isolate;
+    content: '';
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    opacity: 0.7;
+}
+
+.BoxLogIn {
+    text-align: center;
+    margin-top: 50px;
+}
