@@ -73,7 +73,7 @@ namespace BooksWeb.Services
             //Servicio para eliminar libro
             public async Task DeleteBookAsync(int bookId)
             {
-                Books book = await ctx.Books.FirstOrDefaultAsync(b=>b.BookID ==bookId);
+                Books book = await ctx.Books.FirstOrDefaultAsync(b => b.BookID == bookId);
                 book.InactiveDate= DateTime.Now;
                 await ctx.SaveChangesAsync();
             }
@@ -83,7 +83,7 @@ namespace BooksWeb.Services
 
             //Servicio para obtener usuario para iniciar sesion
             public async Task<UsersViewModel> GetUserById(int idUser) =>
-                mapper.Map<UsersViewModel>(await ctx.Users.FirstOrDefaultAsync(u=>u.UserID==idUser));
+                mapper.Map<UsersViewModel>(await ctx.Users.FirstOrDefaultAsync(u => u.UserID == idUser));
 
             //Servicio para comprobar email de usuario
             public async Task<Users> GetUserByEmail(string emailuser) =>

@@ -10,6 +10,7 @@ namespace BooksWeb
         public AutoMapperMappings() 
         {
             CreateMap<Books, BooksViewModel>().ReverseMap();
+            CreateMap<Users, UsersViewModel>().ReverseMap();
         }
     }
 }
