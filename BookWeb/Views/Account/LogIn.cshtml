@@ -8,15 +8,17 @@
 <body>
 	<div class="BgImg"><p></p></div>
 	<div class="container-fluid BoxLogIn">
+		<div class="container col-4">
 		<h1 class="h1 Title">Registro de Lecturas</h1>
-	<div class="mt-5">
-			<div class="card mt-5 CardLogIn">
-			<div class="card-body">
-				<h3 class="login-text">Iniciar Sesión</h3>
-
+		</div>
+		<div class="mt-5 mx-auto BoxCard ">
+			<div class="card col-4 mt-5">
+				<div class="card-body">
+					<h3 class="login-text">Iniciar Sesión</h3>
+					
 				<form asp-action="LogIn" method="post">
 					<div class="form-group">
-						<label asp-for="Email"></label>
+						<label asp-for="Email" class="TextForm"></label>
 						<input asp-for="Email" type="text" class="input-form" placeholder="Email"/>
 						<span asp-validation-for="Email"></span>
 					</div>
@@ -25,9 +27,11 @@
 						<input asp-for="Password" class="input-form" placeholder="Contraseña" type="password" />
 						<span asp-validation-for="Password"></span>
 					</div>
-					<button type="submit">Entrar</button>
+						<div class ="Btn">
+							<button class="SbBtn" type="submit">Entrar</button>
+						</div>
 				</form>
-
+					
 			</div>
 		</div>
 	</div>

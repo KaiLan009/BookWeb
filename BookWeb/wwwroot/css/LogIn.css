@@ -22,9 +22,44 @@
     font-weight: bolder;
     background-color: #858585;
     padding: 5px;
+    border-radius: 15px;
+    box-shadow: 5px 5px;
+    color: white;
+}
+
+.Title:hover {
+    color: black;
 }
 
 .BoxLogIn {
     text-align: center;
     margin-top: 50px;
+}
+
+.BoxCard {
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.login-text {
+    padding: 10px;
+    font-weight: bolder;
+}
+
+.TextForm{
+    margin-right: 28px;
+}
+
+.form-group {
+    padding: 10px;
+}
+
+.Btn {
+    padding: 10px;
+}
+
+.SbBtn:hover {
+    color: white;
+    background-color: black;
 }
