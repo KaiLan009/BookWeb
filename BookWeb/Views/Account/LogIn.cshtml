@@ -1,15 +1,16 @@
 ﻿@model LogInViewModel
 
 <head>
-	<link href="@Url.Content("~/css/LogIn.css")" rel="stylesheet" />
+	<link href="@Url.Content("~/css/LogIn.css?v=@DateTime.Now.Ticks")" rel="stylesheet" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 	<div class="BgImg"><p></p></div>
 	<div class="container-fluid BoxLogIn">
+		<h1 class="h1 Title">Registro de Lecturas</h1>
 	<div class="mt-5">
-		<div class="card CardLogIn">
+			<div class="card mt-5 CardLogIn">
 			<div class="card-body">
 				<h3 class="login-text">Iniciar Sesión</h3>
 
