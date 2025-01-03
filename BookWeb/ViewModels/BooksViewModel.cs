@@ -10,7 +10,7 @@ namespace BooksWeb.ViewModels
         public string Title { get; set; }
         public int Year { get; set; }
         public int AuthorID { get; set; }
-        public int? ISBN { get; set; }
+        public long? ISBN { get; set; }
         public string Editorial { get; set; }
         public int Pages { get; set; }
         public string Format { get; set; }

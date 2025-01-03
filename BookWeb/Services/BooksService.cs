@@ -30,7 +30,7 @@ namespace BooksWeb.Services
                 this.mapper = mapper;
             }
 
-            //Servico que genera la consulta inicial y su mapeo solo muestra las lineas con InactiveDate nulo
+            //Servico que genera la consulta inicial y su mapeo, solo muestra las lineas con InactiveDate nulo
             //en index a traves del controlador
             public async Task<List<BooksViewModel>> GetBooksAsync()=>
                 mapper.Map<List<BooksViewModel>>(await ctx.Books.Where(b => b.InactiveDate == null).ToListAsync());
