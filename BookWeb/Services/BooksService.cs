@@ -2,7 +2,6 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using BooksWeb.ViewModels;
 using BooksData.Entities;
 
 namespace BooksWeb.Services
@@ -16,6 +15,7 @@ namespace BooksWeb.Services
         Task<BooksViewModel> GetBooksById(int id);
         Task<Users> GetUserByEmail(string emailuser);
         Task<UsersViewModel> GetUserById(int userId);
+        Task<List<AuthorsViewModel>> GetAuthorsAsync();
 
         // Clase que define los servicios context DB y mappers 
         public class BooksService : IBooksService
@@ -89,7 +89,9 @@ namespace BooksWeb.Services
             public async Task<Users> GetUserByEmail(string emailuser) =>
                 await ctx.Users.FirstOrDefaultAsync(u => u.UserEmail == emailuser);
 
-            
+            //Servico que genera la consulta inicial de autores
+            public async Task<List<AuthorsViewModel>> GetAuthorsAsync() =>
+                mapper.Map<List<AuthorsViewModel>>(await ctx.Authors.Where(b => b.InactiveDate == null).ToListAsync());
         }
     }
 }

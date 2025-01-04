@@ -1,4 +1,7 @@
-﻿using BooksWeb.Services;
+﻿using AutoMapper;
+using BooksData;
+using BooksWeb.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace BooksWeb.Controllers
 {
@@ -6,10 +9,12 @@ namespace BooksWeb.Controllers
     {
         //Definir y agregar los servicios
         private IBooksService svc;
+        private readonly DbContextBooks ctx;
 
         public BooksController(IBooksService svc)
         {
             this.svc = svc;
+            this.ctx = ctx;
         }
         //Cierre de sesion
         [AllowAnonymous]
@@ -19,11 +24,29 @@ namespace BooksWeb.Controllers
             return RedirectToAction("LogIn", "Account");
         }
 
-        //GET Vista principal
+        /*/GET Vista principal
         public async Task<IActionResult> Index()
         {
             List<BooksViewModel> books = await svc.GetBooksAsync();
             return View(books);
+        }*/
+
+        //Get Vista principal con consultas combinadas
+        public async Task<IActionResult> Index()
+        {
+            // Obtener datos del servicio
+            List<BooksViewModel> books = await svc.GetBooksAsync();
+            List<AuthorsViewModel> authors = await svc.GetAuthorsAsync();
+
+            // Combinar datos en el ViewModel
+            var model = new CombinedViewModel
+            {
+                Books = books,
+                Authors = authors
+            };
+
+            // Pasar el modelo combinado a la vista
+            return View(model);
         }
 
         //GET agregar libro

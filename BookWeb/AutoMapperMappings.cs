@@ -11,6 +11,7 @@ namespace BooksWeb
         {
             CreateMap<Books, BooksViewModel>().ReverseMap();
             CreateMap<Users, UsersViewModel>().ReverseMap();
+            CreateMap<Authors, AuthorsViewModel>().ReverseMap();
         }
     }
 }
