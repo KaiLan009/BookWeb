@@ -1,4 +1,4 @@
-﻿@model BooksViewModel
+﻿@model CombinedViewModel
 
 <head>
 	<link href="@Url.Content("~/css/Edit.css")" rel="stylesheet" />
@@ -6,65 +6,73 @@
 </head>
 
 <body>
-    <div class="EditBox">
-
-        <form method="post" asp-action="EditBook" class="Form">
-
+    <div class="Box">
+        
             @using (Html.BeginForm("EditBook", "Books", FormMethod.Post))
-            {
-                @Html.HiddenFor(model => model.BookID)
-                <div class="row">
-                    <div class="form-group">
-                        <label for="Title">Titulo</label>
-                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
-                    </div>
-                </div>
+                {
+                @Html.HiddenFor(model => model.EditBook.BookID)
 
-                <div class="row">
-                    <div class="form-group">
-                        <label for="Year">Año</label>
-                        @Html.TextBoxFor(model => model.Year, new { @class = "form-control" })
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <label>Título</label> 
+                    <input asp-for="EditBook.Title" class="form-control" />
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="form-group">
-                        <label for="ISBN">ISBN</label>
-                        @Html.TextBoxFor(model => model.ISBN, new { @class = "form-control" })
-                    </div>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <label>Año</label>
+                    <input asp-for="EditBook.Year" class="form-control" />
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="form-group">
-                        <label for="Editorial">Editorial</label>
-                        @Html.TextBoxFor(model => model.Editorial, new { @class = "form-control" })
-                    </div>
+            @* Authors *@
+            <div class="row justify-content-center">
+                <div class="col">
+                    <label>Autor</label>
+                    <input asp-for="EditBook.AuthorID" class="form-control" readonly />
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="form-group">
-                        <label for="Pages">Páginas</label>
-                        @Html.TextBoxFor(model => model.Pages, new { @class = "form-control" })
-                    </div>
+            <div class="row mt-1">
+                <div class="col">
+                    <label>ISBN</label>
+                    <input asp-for="EditBook.ISBN" class="form-control" />
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="form-group">
-                        <label for="Format">Formato</label>
-                        @Html.TextBoxFor(model => model.Format, new { @class = "form-control" })
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <label>Editorial</label>
+                    <input asp-for="EditBook.Editorial" class="form-control" />
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="form-group">
-                        <label for="Synopsis">Sinopsis</label>
-                        @Html.TextBoxFor(model => model.Synopsis, new { @class = "form-control" })
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <label>Páginas</label>
+                    <input asp-for="EditBook.Pages" class="form-control" />
                 </div>
+            </div>
 
-                <button type="submit" class="BtnSubmit" value="EditBook">Guardar</button>
-                <a class="BtnCancel2" asp-action="Index">Cancelar</a>
+            <div class="row">
+                <div class="col">
+                    <label>Formato</label>
+                    <input asp-for="EditBook.Format" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Sinopsis</label>
+                    <input asp-for="EditBook.Synopsis" class="form-control"/>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
             }
-        </form>
     </div>
 </body>

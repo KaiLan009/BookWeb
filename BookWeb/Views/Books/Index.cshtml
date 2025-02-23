@@ -5,6 +5,22 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+<div class="navbar navbar-expand">
+	<div class="container-fluid">
+		<a class="navbar-brand" asp-action="Index">Libros</a>
+		<div>
+			<ul class="navbar-nav me-auto mb-2">
+				<li class="nav-item">
+					<a class="nav-link active" asp-action="">Autores</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" asp-action="AddBook">Agregar</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
 <body>
 	<div class="table-responsive">
 		<table class="table Books">
@@ -12,7 +28,7 @@
 			<tr>
 				<th>No</th>
 				<th>Título</th>
-				<th>Año</th>
+				<th>Edición</th>
 				<th>Autor</th>
 				<th>ISBN</th>
 				<th>Editorial</th>

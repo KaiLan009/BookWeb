@@ -1,0 +1,75 @@
+﻿@model CombinedViewModel
+
+<head>
+    <link href="@Url.Content("~/css/Add.css")" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="Box">
+        <form method="post" asp-action="AddBook" class="Form">
+            <div class="row">
+                <div class="col">
+                    <label>Titulo</label>
+                    <input asp-for="AddBook.Title" class="form-control" />
+                </div>
+            </div>
+            <br />
+            <div class="row justify-content-center">
+                <div class="col">
+                    <label>Año</label>
+                    <input asp-for="AddBook.Year" class="form-control" />
+                </div>
+            </div>
+            <br />
+
+            @*Lista de Autores*@
+            <div class="form-group">
+                <label for="AddBook.AuthorID">Seleccione un Autor:</label>
+                <select asp-for="AddAuthor.AuthorID" class="form-select" id="authorId" asp-items="@ViewBag.Authors">
+                    <option disabled selected> Seleccione Autor </option>
+                </select>
+            </div>
+            @*Lista de Autores*@
+
+            <div class="row mt-1">
+                <div class="col">
+                    <label>ISBN</label>
+                    <input asp-for="AddBook.ISBN" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Editorial</label>
+                    <input asp-for="AddBook.Editorial" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Páginas</label>
+                    <input asp-for="AddBook.Pages" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Formato</label>
+                    <input asp-for="AddBook.Format" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>Sinopsis</label>
+                    <input asp-for="AddBook.Synopsis" class="form-control" />
+                </div>
+            </div>
+
+
+            <button class="" type="submit" value="AddBook">Guardar</button>
+            <a class="" asp-action="Index">Cancelar</a>
+        </form>
+    </div>
+</body>
